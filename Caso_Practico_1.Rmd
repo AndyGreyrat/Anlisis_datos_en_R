@@ -1,0 +1,420 @@
+---
+title: "Caso Practico 1"
+author: "Andy GreyRat"
+date: "2023-08-25"
+output: html_document
+---
+
+## Análisis de datos: Caso Practico 1
+
+### Contexto: 
+Soy un analista de datos junior, estoy trabajando con el equipo de analistas de marketing de Cyclistic, una empresa de bicicletas compartidas de Chicago. La directora de marketing cree que el éxito futuro de la empresa depende de maximizar la cantidad de membresías anuales. Por lo tanto, tu equipo quiere entender qué diferencias existen en el uso de las bicicletas Cyclistic entre los ciclistas ocasionales y los miembros anuales. A través de estos conocimientos, tu equipo diseñará una nueva estrategia de marketing para convertir a los ciclistas ocasionales en miembros anuales. Sin embargo, antes de eso, los ejecutivos de Cyclistic deben aprobar tus recomendaciones; por eso, debes respaldar tu propuesta con una visión convincente de los datos y visualizaciones profesionales de los mismos.
+
+
+### Personajes y equipos
+●	Cyclistic: Un programa de bicicletas compartidas que incluye 5,800 bicicletas y 600 estaciones. Cyclistic se destaca por ofrecer también bicicletas reclinadas, triciclos manuales y bicicletas de carga que ofrecen un uso más inclusivo de las bicicletas compartidas para las personas con discapacidad y los ciclistas que no pueden utilizar una bicicleta estándar de dos ruedas. La mayoría de los ciclistas eligen las bicicletas tradicionales, alrededor de un 8% de los ciclistas usan las opciones asistidas. Los usuarios de Cyclistic son más propensos a utilizar la bicicleta para recreación, pero alrededor del 30% la utiliza para ir al trabajo cada día.
+●	Lily Moreno: La directora de marketing y tu gerente. Moreno es responsable del desarrollo de campañas e iniciativas para promover el programa de bicicletas compartidas. Las campañas pueden incluir correo electrónico, redes sociales y otros canales.
+●	Equipo de análisis computacional de datos de marketing de Cyclistic: Un equipo de analistas de datos que se encargan de recopilar, analizar e informar datos que ayudan a conducir la estrategia de marketing de Cyclistic. Te incorporaste a este equipo hace seis meses y te has dedicado no solo a conocer la misión y las metas de negocios de Cyclistic, sino también a ver cómo puedes ayudar a Cyclistic a lograrlo, desde tu posición de analista de datos júnior.
+●	Equipo ejecutivo de Cyclistic: El equipo ejecutivo, sumamente detallista, decidirá si aprueba el programa de marketing recomendado.
+ 
+
+### Acerca de la empresa
+En 2016, Cyclistic lanzó una exitosa oferta de bicicletas compartidas. Desde entonces, el programa creció hasta alcanzar una flota de 5,824 bicicletas georreferenciadas y bloqueadas en una red de 692 estaciones en toda Chicago. Las bicicletas se pueden desbloquear desde una estación y devolverse en cualquier otra estación del sistema en cualquier momento.
+
+Hasta ahora, la estrategia de marketing de Cyclistic se basaba en la construcción de un reconocimiento de marca general y en atraer a amplios segmentos de consumidores. Uno de los enfoques que ayudó a hacer esto posible fue la flexibilidad de sus planes de precios: pases de un solo viaje, pases de un día completo y membresías anuales. A los clientes que compran pases de un solo viaje o pases de un día completo se los llama ciclistas ocasionales. Los clientes que compran membresías anuales se llaman miembros de Cyclistic.
+
+Los analistas financieros de Cyclistic llegaron a la conclusión de que los miembros anuales son mucho más rentables que los ciclistas ocasionales. Aunque la flexibilidad de precios ayuda a Cyclistic a atraer más clientes, Moreno cree que maximizar el número de miembros anuales será clave para el crecimiento futuro. En lugar de crear una campaña de marketing que apunte a todos los clientes nuevos, Moreno cree que hay muchas posibilidades de convertir a los ciclistas ocasionales en miembros. Ella señala que los ciclistas ocasionales ya conocen el programa de Cyclistic y han elegido a Cyclistic para sus necesidades de movilidad.
+
+Moreno estableció una meta clara: Diseñar estrategias de marketing orientadas a convertir a los ciclistas ocasionales en miembros anuales. Sin embargo, para hacer eso, el equipo de analistas de marketing necesita entender mejor cómo difieren los miembros anuales y los ciclistas ocasionales, por qué los ciclistas ocasionales comprarían una membresía y cómo los medios digitales podrían afectar sus tácticas de marketing. Moreno y su equipo están interesados en analizar los datos históricos de viajes en bicicleta de Cyclistic para identificar tendencias.
+
+### Preguntar
+Tres preguntas guiarán el futuro programa de marketing:
+* 1.	¿En qué se diferencian los socios anuales y los ciclistas ocasionales con respecto al uso de las bicicletas de Cyclistic?
+* 2.	¿Por qué los ciclistas ocasionales comprarían membresías anuales de Cyclistic?
+* 3.	¿Cómo puede usar Cyclistic los medios digitales para influenciar a los ciclistas ocasionales a convertirse en miembros?
+ 
+
+
+Moreno te asignó la primera pregunta por responder: ¿En qué se diferencian los socios anuales y los ciclistas ocasionales con respecto al uso de las bicicletas de Cyclistic?
+
+Se creará un informe con los siguientes entregables:
+* 1.	Una instrucción clara de la tarea empresarial
+* 2.	Una descripción de todas las fuentes de datos utilizadas
+* 3.	Documentación de todas las limpiezas y manipulaciones de datos
+* 4.	Un resumen de tu análisis
+* 5.	Visualizaciones de respaldo y hallazgos clave
+* 6.	Las tres recomendaciones más importantes basadas en tu análisis
+
+### Preparar los datos:
+
+Se usaran los datos históricos de los viajes de Cyclistic para analizar e identificar tendencias. Descarga los últimos 12 meses de datos de viajes de Cyclistic  aquí. (Nota: Los conjuntos de datos tienen un nombre diferente porque Cyclistic es una empresa ficticia. A los fines de este caso práctico, los conjuntos de datos son apropiados y te permitirán responder las preguntas de la empresa. Los datos han sido proporcionados por Motivate International Inc. bajo esta licencia.) Estos son datos públicos que puedes usar para explorar cómo difieren los tipos de clientes que usan las bicicletas Cyclistic. Sin embargo, ten en cuenta que, por cuestiones de privacidad de los datos, se te prohíbe usar información de identificación personal de los ciclistas. Esto significa que no podrás conectar las compras de pases con los números de tarjetas de crédito para determinar si los ciclistas ocasionales viven en el área de servicio de Cyclistic o si compraron varios pases de un solo viaje.
+
+### Procesar los datos:
+
+Primero comenzamos llamando las librerías que requerimos para el análisis de los datos, además seleccionamos con  la función  setwd() la carpeta de trabajo para el desarrollo de nuestro análisis de  datos:
+
+```{r Paquetes y librerías requeridas para el análisis de datos: }
+library(tidyverse)  # Tidyverse es el paquete mas usado por su versatilidad para el análisis de datos en R 
+library(lubridate)  # Es un paquete que facilita el trabajo con fechas y horas en R
+library(ggplot2)  # Ggplot2 es una librería que nos permite poder graficar y crear visualizaciones de los datos 
+library(dplyr)
+setwd("C:/Users/Acer/Desktop/Ciencia de datos/Curso final de análisis computacional de datos de Google completa un caso práctico/Semana 2/Caso_Practico_1")
+library(knitr)
+
+```
+
+
+Ahora se procede a cargar los datos desde los 12 CSV para su correspondiente análisis, no sin antes prepáralos y procesarlos para ello:
+
+```{r Carga e importacion de los datos}
+datos_2022_06 <- read_csv("C:/Users/Acer/Desktop/Ciencia de datos/Curso final de análisis computacional de datos de Google completa un caso práctico/Semana 2/Caso_Practico_1/Datos/CSV/202206-divvy-tripdata.csv")
+datos_2022_07 <- read_csv("C:/Users/Acer/Desktop/Ciencia de datos/Curso final de análisis computacional de datos de Google completa un caso práctico/Semana 2/Caso_Practico_1/Datos/CSV/202207-divvy-tripdata.csv")
+datos_2022_08 <- read_csv("C:/Users/Acer/Desktop/Ciencia de datos/Curso final de análisis computacional de datos de Google completa un caso práctico/Semana 2/Caso_Practico_1/Datos/CSV/202208-divvy-tripdata.csv")
+datos_2022_09 <- read_csv("C:/Users/Acer/Desktop/Ciencia de datos/Curso final de análisis computacional de datos de Google completa un caso práctico/Semana 2/Caso_Practico_1/Datos/CSV/202209-divvy-publictripdata.csv")
+datos_2022_10 <- read_csv("C:/Users/Acer/Desktop/Ciencia de datos/Curso final de análisis computacional de datos de Google completa un caso práctico/Semana 2/Caso_Practico_1/Datos/CSV/202210-divvy-tripdata.csv")
+datos_2022_11 <- read_csv("C:/Users/Acer/Desktop/Ciencia de datos/Curso final de análisis computacional de datos de Google completa un caso práctico/Semana 2/Caso_Practico_1/Datos/CSV/202211-divvy-tripdata.csv")
+datos_2022_12 <- read_csv("C:/Users/Acer/Desktop/Ciencia de datos/Curso final de análisis computacional de datos de Google completa un caso práctico/Semana 2/Caso_Practico_1/Datos/CSV/202212-divvy-tripdata.csv")
+datos_2023_01 <- read_csv("C:/Users/Acer/Desktop/Ciencia de datos/Curso final de análisis computacional de datos de Google completa un caso práctico/Semana 2/Caso_Practico_1/Datos/CSV/202301-divvy-tripdata.csv")
+datos_2023_02 <- read_csv("C:/Users/Acer/Desktop/Ciencia de datos/Curso final de análisis computacional de datos de Google completa un caso práctico/Semana 2/Caso_Practico_1/Datos/CSV/202302-divvy-tripdata.csv")
+datos_2023_03 <- read_csv("C:/Users/Acer/Desktop/Ciencia de datos/Curso final de análisis computacional de datos de Google completa un caso práctico/Semana 2/Caso_Practico_1/Datos/CSV/202303-divvy-tripdata.csv")
+datos_2023_04 <- read_csv("C:/Users/Acer/Desktop/Ciencia de datos/Curso final de análisis computacional de datos de Google completa un caso práctico/Semana 2/Caso_Practico_1/Datos/CSV/202304-divvy-tripdata.csv")
+datos_2023_05 <- read_csv("C:/Users/Acer/Desktop/Ciencia de datos/Curso final de análisis computacional de datos de Google completa un caso práctico/Semana 2/Caso_Practico_1/Datos/CSV/202305-divvy-tripdata.csv")
+
+```
+Comenzamos con el proceso de limpieza de los datos, debemos eliminar datos nulos, duplicados, y realizar los cálculos y crear nuevas variables solicitadas. Primero Verificamos nos los nombres de las columnas de cada conjunto de datos para ver que sean iguales y consistentes para que estas puedan ser comparadas y además poder unir los diferentes conjuntos para formar uno nuevo que corresponda a todo un año entero:
+
+```{r }
+colnames(datos_2022_06)
+colnames(datos_2022_07)
+colnames(datos_2022_08)
+colnames(datos_2022_09)
+colnames(datos_2022_10)
+colnames(datos_2022_11)
+colnames(datos_2022_12)
+colnames(datos_2023_01)
+colnames(datos_2023_02)
+colnames(datos_2023_03)
+colnames(datos_2023_04)
+colnames(datos_2023_05)
+```
+Se observa una consistencia entre las variables de cada uno de los conjuntos de datos, así que procedemos ahora si a la limpieza de cada uno, para ello Inspeccionaremos los dataframes para corroborar que no existan incongruencias en los tipos de datos:  
+
+```{r}
+str(datos_2022_06)
+str(datos_2022_07)
+str(datos_2022_08)
+str(datos_2022_09)
+str(datos_2022_10)
+str(datos_2022_11)
+str(datos_2022_12)
+str(datos_2023_01)
+str(datos_2023_02)
+str(datos_2023_03)
+str(datos_2023_04)
+str(datos_2023_05)
+```
+Ahora comprobaremos la existencia de datos nulos en cada uno de los conjuntos de datos:
+
+```{r}
+colSums(is.na(datos_2022_06))
+colSums(is.na(datos_2022_07))
+colSums(is.na(datos_2022_08))
+colSums(is.na(datos_2022_09))
+colSums(is.na(datos_2022_10))
+colSums(is.na(datos_2022_11))
+colSums(is.na(datos_2022_12))
+colSums(is.na(datos_2023_01))
+colSums(is.na(datos_2023_02))
+colSums(is.na(datos_2023_03))
+colSums(is.na(datos_2023_04))
+colSums(is.na(datos_2023_05))
+```
+Dado que se verifico la presencia de datos nulos en todos los dataframes, procedemos a eliminarlos:
+
+```{r}
+datos_22_06 <- datos_2022_06 %>% 
+  drop_na()
+datos_22_07 <- datos_2022_07 %>% 
+  drop_na()
+datos_22_08 <- datos_2022_08 %>% 
+  drop_na()
+datos_22_09 <- datos_2022_09 %>% 
+  drop_na()
+datos_22_10 <- datos_2022_10 %>% 
+  drop_na()
+datos_22_11 <- datos_2022_11 %>% 
+  drop_na()
+datos_22_12 <- datos_2022_12 %>% 
+  drop_na()
+datos_23_01 <- datos_2023_01 %>% 
+  drop_na()
+datos_23_02 <- datos_2023_02 %>% 
+  drop_na()
+datos_23_03 <- datos_2023_03 %>% 
+  drop_na()
+datos_23_04 <- datos_2023_04 %>% 
+  drop_na()
+datos_23_05 <- datos_2023_05 %>% 
+  drop_na()
+```
+Ahora comprobaremos nuevamente la existencia de datos nulos:
+
+```{r}
+colSums(is.na(datos_22_06))
+colSums(is.na(datos_22_07))
+colSums(is.na(datos_22_08))
+colSums(is.na(datos_22_09))
+colSums(is.na(datos_22_10))
+colSums(is.na(datos_22_11))
+colSums(is.na(datos_22_12))
+colSums(is.na(datos_23_01))
+colSums(is.na(datos_23_02))
+colSums(is.na(datos_23_03))
+colSums(is.na(datos_23_04))
+colSums(is.na(datos_23_05))
+```
+Comprobamos si existen duplicados en los dataframes, de ser así, estos se eliminaran:
+
+```{r}
+duplicated(datos_22_06)
+duplicated(datos_22_07)
+duplicated(datos_22_08)
+duplicated(datos_22_09)
+duplicated(datos_22_10)
+duplicated(datos_22_11)
+duplicated(datos_22_12)
+duplicated(datos_23_01)
+duplicated(datos_23_02)
+duplicated(datos_23_03)
+duplicated(datos_23_04)
+duplicated(datos_23_05)
+```
+Limpiamos los datos de duplicado con la siguiente canalización y usando el metodo distinct() de la libreria dplyr:
+
+```{r}
+datos_22_06_limpios <- datos_22_06 %>% distinct()
+datos_22_07_limpios <- datos_22_07 %>% distinct()
+datos_22_08_limpios <- datos_22_08 %>% distinct()
+datos_22_09_limpios <- datos_22_09 %>% distinct()
+datos_22_10_limpios <- datos_22_10 %>% distinct()
+datos_22_11_limpios <- datos_22_11 %>% distinct()
+datos_22_12_limpios <- datos_22_12 %>% distinct()
+datos_23_01_limpios <- datos_23_01 %>% distinct()
+datos_23_02_limpios <- datos_23_02 %>% distinct()
+datos_23_03_limpios <- datos_23_03 %>% distinct()
+datos_23_04_limpios <- datos_23_04 %>% distinct()
+datos_23_05_limpios <- datos_23_05 %>% distinct()
+
+```
+
+Ahora procedemos a crear una nueva variable que será una nueva columna en nuestros datos. Dichas variables se llamará “ride_length”. Calcula la extensión de cada viaje restando la columna “started_at” de la columna “ended_at” y usa el formato HH:MM:SS, Para ello usaremos el método mutate() de paquete dplyr para crear la nueva columna :
+```{r}
+datos_2206 <- datos_22_06_limpios %>% mutate(ride_length = difftime(as.POSIXct(ended_at), as.POSIXct(started_at), units = "secs"))
+datos_2207 <- datos_22_07_limpios %>% mutate(ride_length = difftime(as.POSIXct(ended_at), as.POSIXct(started_at), units = "secs"))
+datos_2208 <- datos_22_08_limpios %>% mutate(ride_length = difftime(as.POSIXct(ended_at), as.POSIXct(started_at), units = "secs"))
+datos_2209 <- datos_22_09_limpios %>% mutate(ride_length = difftime(as.POSIXct(ended_at), as.POSIXct(started_at), units = "secs"))
+datos_2210 <- datos_22_10_limpios %>% mutate(ride_length = difftime(as.POSIXct(ended_at), as.POSIXct(started_at), units = "secs"))
+datos_2211 <- datos_22_11_limpios %>% mutate(ride_length = difftime(as.POSIXct(ended_at), as.POSIXct(started_at), units = "secs"))
+datos_2212 <- datos_22_12_limpios %>% mutate(ride_length = difftime(as.POSIXct(ended_at), as.POSIXct(started_at), units = "secs"))
+datos_2301 <- datos_23_01_limpios %>% mutate(ride_length = difftime(as.POSIXct(ended_at), as.POSIXct(started_at), units = "secs"))
+datos_2302 <- datos_23_02_limpios %>% mutate(ride_length = difftime(as.POSIXct(ended_at), as.POSIXct(started_at), units = "secs"))
+datos_2303 <- datos_23_03_limpios %>% mutate(ride_length = difftime(as.POSIXct(ended_at), as.POSIXct(started_at), units = "secs"))
+datos_2304 <- datos_23_04_limpios %>% mutate(ride_length = difftime(as.POSIXct(ended_at), as.POSIXct(started_at), units = "secs"))
+datos_2305 <- datos_23_05_limpios %>% mutate(ride_length = difftime(as.POSIXct(ended_at), as.POSIXct(started_at), units = "secs"))
+
+```
+
+
+
+Creamos una columna llamada “day_of_week” que  calcula el día de la semana en el que empezó cada viaje en cada archivo. Utiliza el formato General o número sin decimales, es decir, que 1 = domingo y 7 = sábado, usaremos la funcion wday() de lubridate.
+
+
+```{r}
+datos_2206 <- datos_2206 %>%
+  mutate(day_of_week = wday(as.Date(started_at)))
+datos_2207 <- datos_2207 %>%
+  mutate(day_of_week = wday(as.Date(started_at)))
+datos_2208 <- datos_2208 %>%
+  mutate(day_of_week = wday(as.Date(started_at)))
+datos_2209 <- datos_2209 %>%
+  mutate(day_of_week = wday(as.Date(started_at)))
+datos_2210 <- datos_2210 %>%
+  mutate(day_of_week = wday(as.Date(started_at)))
+datos_2211 <- datos_2211 %>%
+  mutate(day_of_week = wday(as.Date(started_at)))
+datos_2212 <- datos_2212 %>%
+  mutate(day_of_week = wday(as.Date(started_at)))
+datos_2301 <- datos_2301 %>%
+  mutate(day_of_week = wday(as.Date(started_at)))
+datos_2302 <- datos_2302 %>%
+  mutate(day_of_week = wday(as.Date(started_at)))
+datos_2303 <- datos_2303 %>%
+  mutate(day_of_week = wday(as.Date(started_at)))
+datos_2304 <- datos_2304 %>%
+  mutate(day_of_week = wday(as.Date(started_at)))
+datos_2305 <- datos_2305 %>%
+  mutate(day_of_week = wday(as.Date(started_at)))
+```
+
+Ahora fusionamos los datos de cada mes creando un dataframe que abarca todo el ultimo  año desde junio de 2022 hasta mayo de 2023 usando la el metodo de dplyr bind_rows():
+
+```{r}
+datos_completos <- bind_rows(datos_2206, datos_2207, datos_2208, datos_2209, datos_2210,
+                      datos_2211, datos_2212, datos_2301, datos_2302, datos_2303,
+                      datos_2304, datos_2305)
+```
+
+Como ultimo paso, elimináremos los datos incorrectos como por ejemplo valores negativos en el tiempo por  viaje en bicicleta: 
+
+```{r}
+datos_completos <- datos_completos[datos_completos$ride_length >= 0, ]
+```
+
+
+### Análisis de los datos
+
+Para el análisis de datos nos centraremos en la variable ride_length, usaremos un análisis estadístico y descriptivo para esta variable y compararemos, además, el tipo de usuarios que usan las bicicletas ya sean Casuales o Miembros. 
+
+```{r}
+ride_lenght_estaditica <- datos_completos %>% 
+  summarize(mean_ride_length = mean(ride_length), median_ride_length = median(ride_length), max_ride_length = max(ride_length),
+            min_ride_length = min(ride_length), sd_ride_length = sd(ride_length) )
+print(ride_lenght_estaditica)
+```
+Comparemos los viajes realizados por usuarios miembros y casuales:
+
+```{r}
+mean_casualvsmember <- aggregate(datos_completos$ride_length ~ datos_completos$member_casual, FUN = mean)
+median_casualvsmember <- aggregate(datos_completos$ride_length ~ datos_completos$member_casual, FUN = median)
+max_casualvsmember <- aggregate(datos_completos$ride_length ~ datos_completos$member_casual, FUN = max)
+min_casualvsmember <- aggregate(datos_completos$ride_length ~ datos_completos$member_casual, FUN = min)
+sd_casualvsmember <- aggregate(datos_completos$ride_length ~ datos_completos$member_casual, FUN = sd)
+
+print(mean_casualvsmember)
+print(median_casualvsmember)
+print(max_casualvsmember)
+print(min_casualvsmember)
+print(sd_casualvsmember)
+```
+Ahora veremos  el tiempo promedio de viaje cada día para member y casual:
+
+```{r}
+aggregate(datos_completos$ride_length ~ datos_completos$member_casual + datos_completos$day_of_week, FUN = mean)
+```
+
+
+```{r}
+datos_completos %>% 
+  mutate(weekday = wday(started_at, label = TRUE)) %>%  #creamos una nueva columna 
+  group_by(member_casual, weekday) %>%  #agrupamos por tipo de usuarios
+  summarise(number_of_rides = n()							#calcula el numero de viajes y la duracion promedio
+  ,average_duration = mean(ride_length)) %>% 		# calcula la diracion promedio
+  arrange(member_casual, weekday)	
+```
+### Visualizar los datos  
+
+Crearemos una visualización del número de viajes por tipo de usuario: 
+
+```{r}
+datos_completos %>% 
+  mutate(weekday = wday(started_at, label = TRUE)) %>% 
+  group_by(member_casual, weekday) %>% 
+  summarise(number_of_rides = n()
+            ,average_duration = mean(ride_length)) %>% 
+  arrange(member_casual, weekday)  %>% 
+  ggplot(aes(x = weekday, y = number_of_rides, fill = member_casual)) +
+  geom_col(position = "dodge")
+
+```
+Creamos una gráfica para observar la duración promedio de los viajes por tipo de usuario en cada dia se la semana: 
+
+
+```{r}
+datos_completos %>% 
+  mutate(weekday = wday(started_at, label = TRUE)) %>% 
+  group_by(member_casual, weekday) %>% 
+  summarise(number_of_rides = n()
+            ,average_duration = mean(ride_length)) %>% 
+  arrange(member_casual, weekday)  %>% 
+  ggplot(aes(x = weekday, y = average_duration, fill = member_casual)) +
+  geom_col(position = "dodge")
+
+```
+Exportamos los datos que resultados de los análisis y comparaciones para dar respuestas a las preguntas:  
+
+
+```{r}
+
+counts <- aggregate(datos_completos$ride_length ~ datos_completos$member_casual + datos_completos$day_of_week, FUN = mean)
+write.csv(counts,"C:/Users/Acer/Desktop/Ciencia de datos/Curso final de análisis computacional de datos de Google completa un caso práctico/Semana 2/Caso_Practico_1/datos_analizados.csv", row.names=FALSE)
+
+```
+### Actuar
+
+### Respuestas a las preguntas iniciales: 
+
+1.	¿En qué se diferencian los socios anuales y los ciclistas ocasionales con respecto al uso de las bicicletas de Cyclistic?
+Los socios anuales y los ciclistas ocasionales se diferencian en el uso de las bicicletas de Cyclistic en cuanto a la frecuencia y duración de los viajes. Según la primera gráfica, los miembros tienden a utilizar más el servicio de bicicletas durante los días laborales, mientras que los usuarios casuales tienden a utilizarlo más durante los fines de semana. Según la segunda gráfica, los usuarios casuales tienden a tener viajes más largos en bicicleta durante los fines de semana, mientras que los miembros tienden a tener viajes más largos durante los días laborales.
+
+2.	¿Por qué los ciclistas ocasionales comprarían membresías anuales de Cyclistic?
+Los ciclistas ocasionales podrían comprar membresías anuales de Cyclistic por varias razones. Una membresía anual podría ofrecerles un mejor valor si planean utilizar el servicio con regularidad. También podrían estar interesados en obtener acceso a beneficios exclusivos para miembros, como descuentos en tiendas asociadas o eventos especiales para miembros.
+
+3.	¿Cómo puede usar Cyclistic los medios digitales para influenciar a los ciclistas ocasionales a convertirse en miembros?
+
+Cyclistic puede usar los medios digitales para influenciar a los ciclistas ocasionales a convertirse en miembros de varias maneras. Por ejemplo, podrían utilizar las redes sociales para compartir historias de éxito de miembros actuales y destacar los beneficios exclusivos que ofrece una membresía anual. También podrían utilizar el marketing por correo electrónico para enviar ofertas especiales y promociones a ciclistas ocasionales para incentivarlos a convertirse en miembros.
+
+###  Conclusiones:
+
+```{r}
+datos_completos %>% 
+  mutate(weekday = wday(started_at, label = TRUE)) %>% 
+  group_by(member_casual, weekday) %>% 
+  summarise(number_of_rides = n()
+            ,average_duration = mean(ride_length)) %>% 
+  arrange(member_casual, weekday)  %>% 
+  ggplot(aes(x = weekday, y = number_of_rides, fill = member_casual)) +
+  geom_col(position = "dodge")
+```
+
+
+
+* La gráfica muestra el número de viajes realizados por miembros y usuarios casuales en diferentes días de la semana.
+
+* El día con el mayor número de viajes realizados por miembros es el miércoles, mientras que el día con el mayor número de     viajes realizados por usuarios casuales es el sábado.
+
+*El día con el menor número de viajes realizados tanto por miembros como por usuarios casuales es el domingo.
+
+*Estos resultados sugieren que los miembros tienden a utilizar más el servicio de bicicletas durante los días laborales, mientras que los usuarios casuales tienden a utilizarlo más durante los fines de semana. También se puede observar que tanto los miembros como los usuarios casuales utilizan menos el servicio los domingos. Esto podría deberse a una variedad de factores, como el clima, la disponibilidad de otras opciones de transporte o las preferencias personales de los usuarios.
+
+```{r}
+datos_completos %>% 
+  mutate(weekday = wday(started_at, label = TRUE)) %>% 
+  group_by(member_casual, weekday) %>% 
+  summarise(number_of_rides = n()
+            ,average_duration = mean(ride_length)) %>% 
+  arrange(member_casual, weekday)  %>% 
+  ggplot(aes(x = weekday, y = average_duration, fill = member_casual)) +
+  geom_col(position = "dodge")
+
+```
+
+* La gráfica muestra la duración promedio de los viajes en bicicleta para miembros y usuarios casuales en diferentes días de la semana.
+
+* El día con la mayor duración promedio para usuarios casuales es el sábado, mientras que el día con la mayor duración promedio para miembros es el miércoles.
+
+* El día con la menor duración promedio tanto para usuarios casuales como para miembros es el lunes.
+
+* Estos resultados sugieren que los usuarios casuales tienden a tener viajes más largos en bicicleta durante los fines de semana, mientras que los miembros tienden a tener viajes más largos durante los días laborales. También se puede observar que tanto los miembros como los usuarios casuales tienen viajes más cortos los lunes. Esto podría deberse a una variedad de factores, como el clima, la disponibilidad de otras opciones de transporte o las preferencias personales de los usuarios.
+
+
+
+
+
+
+
+
+
+
+
+
+
